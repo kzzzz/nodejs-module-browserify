@@ -1,9 +1,15 @@
 'use strict';
 
 var $ = require('jquery');
-var taskTemplate = '<li class="task">\n<input class="complete" type="checkbox" /> \n    <input class="description" type="text" placeholder="Enter task description..." /> \n    <button class="delete-button">Delete</button>\n</li>';
 
 function _renderTask(task) {
+    var taskTemplate = require('../../templates/task.hbs');
+    return $(taskTemplate(task));
+}
+
+function _renderTask_old(task) {
+    var taskTemplate = '<li class="task">\n<input class="complete" type="checkbox" /> \n    <input class="description" type="text" placeholder="Enter task description..." /> \n    <button class="delete-button">Delete</button>\n</li>';
+
     var $task = $(taskTemplate);
     if (task.complete) {
         $task.find(".complete").attr("checked", "checked");
