@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var dustify = require('browserify-dustjs');
+var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 gulp.task('script', function () {
@@ -10,7 +11,8 @@ gulp.task('script', function () {
             insertGlobals: true,
             debug: true
         }))
-        .pipe(rename('app.bundle.js'))
+        .pipe(uglify({mangle: false}))
+        .pipe(rename('tasks-app.min.js'))
         .pipe(gulp.dest('build/js/'));
 });
 
