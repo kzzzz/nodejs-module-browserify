@@ -8,17 +8,17 @@ var add = function () {
     taskRenderer.renderNew();
 };
 
-var remove = function (clickEvent) {
+function remove(clickEvent) {
     var taskElement = clickEvent.target;
     $(taskElement).closest(".task").remove();
-};
+}
 
-var clear = function () {
+function clear() {
     taskData.clear();
-    exports.render();
-};
+    render();
+}
 
-var save = function () {
+function save() {
     var tasks = [];
     $("#task-list .task").each(function (index, task) {
         var $task = $(task);
@@ -29,15 +29,15 @@ var save = function () {
     });
 
     taskData.save(tasks);
-};
+}
 
-var cancel = function () {
-    exports.render();
-};
+function cancel() {
+    render();
+}
 
-var render = function () {
+function render() {
     taskRenderer.renderTasks(taskData.load());
-};
+}
 
 module.exports = {
     add: add,
