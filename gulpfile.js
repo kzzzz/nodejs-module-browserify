@@ -12,7 +12,12 @@ gulp.task('browserify', function () {
             debug: true
         }))
         .pipe(rename('app.bundle.js'))
-        .pipe(gulp.dest('src/js/'));
+        .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('html', function () {
+    gulp.src('src/*.html')
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('connect', function () {
@@ -22,4 +27,4 @@ gulp.task('connect', function () {
     //});
 });
 
-gulp.task('default', ['browserify', 'connect']);
+gulp.task('default', ['browserify', 'html', 'connect']);
