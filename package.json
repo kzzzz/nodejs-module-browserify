@@ -8,6 +8,9 @@
     "jquery": "^2.1.4"
   },
   "devDependencies": {
+    "browserify-dustjs": "^0.1.1",
+    "dustjs-helpers": "^1.7.3",
+    "dustjs-linkedin": "^2.7.2",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-connect": "^2.2.0",

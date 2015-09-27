@@ -1,13 +1,12 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
+var dustify = require('browserify-dustjs');
 var rename = require('gulp-rename');
-var connect = require('gulp-connect');
-var hbsfy = require('hbsfy');
 
-gulp.task('browserify', function () {
+gulp.task('script', function () {
     gulp.src('src/js/app.js')
         .pipe(browserify({
-            transform: [hbsfy],
+            transform: [dustify],
             insertGlobals: true,
             debug: true
         }))
@@ -20,11 +19,4 @@ gulp.task('html', function () {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('connect', function () {
-    //connect.server({
-    //    root: 'src',
-    //    livereload: true
-    //});
-});
-
-gulp.task('default', ['browserify', 'html', 'connect']);
+gulp.task('default', ['script', 'html']);

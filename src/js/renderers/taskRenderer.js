@@ -2,20 +2,31 @@
 
 var $ = require('jquery');
 
-function _renderTask(task) {
-    var taskTemplate = require('../../templates/task.hbs');
-    return $(taskTemplate(task));
+function renderTask(task) {
+    var template = require('../../templates/task.dust');
+
+    var compiledHtml = null;
+    template(task, function (err, html) {
+        compiledHtml = html;
+    });
+
+    return compiledHtml;
 }
 
-exports.renderTasks = function (tasks) {
-    var elementArray = $.map(tasks, _renderTask);
+function renderTasks(tasks) {
+    var elementArray = $.map(tasks, renderTask);
 
     $("#task-list")
         .empty()
         .append(elementArray);
-};
+}
 
-exports.renderNew = function () {
+function renderNew() {
     var $taskList = $("#task-list");
-    $taskList.prepend(_renderTask({}));
+    $taskList.prepend(renderTask({}));
+}
+
+module.exports = {
+    renderTasks: renderTasks,
+    renderNew: renderNew
 };

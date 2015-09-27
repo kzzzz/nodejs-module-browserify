@@ -2,11 +2,11 @@
 
 var STORE_NAME = "tasks";
 
-exports.save = function (tasks) {
+var save = function (tasks) {
     localStorage.setItem(STORE_NAME, JSON.stringify(tasks));
 };
 
-exports.load = function () {
+var load = function () {
     var storedTasks = localStorage.getItem(STORE_NAME);
     if (storedTasks) {
         return JSON.parse(storedTasks);
@@ -14,6 +14,12 @@ exports.load = function () {
     return [];
 };
 
-exports.clear = function () {
+var clear = function () {
     localStorage.removeItem(STORE_NAME);
+};
+
+module.exports = {
+    save: save,
+    load: load,
+    clear: clear
 };

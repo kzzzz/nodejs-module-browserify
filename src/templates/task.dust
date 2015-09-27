@@ -1,0 +1,5 @@
+<li class="task">
+    <input class="complete" type="checkbox" {?complete}checked='checked'{/complete}>
+    <input class="description" type="text" placeholder="Enter task description..." value={description}></input>
+    <button class="delete-button">Delete</button>
+</li>

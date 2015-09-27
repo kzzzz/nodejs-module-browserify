@@ -4,21 +4,21 @@ var $ = require('jquery');
 var taskData = require('./data/taskData');
 var taskRenderer = require('./renderers/taskRenderer');
 
-exports.add = function () {
+var add = function () {
     taskRenderer.renderNew();
 };
 
-exports.remove = function (clickEvent) {
+var remove = function (clickEvent) {
     var taskElement = clickEvent.target;
     $(taskElement).closest(".task").remove();
 };
 
-exports.clear = function () {
+var clear = function () {
     taskData.clear();
     exports.render();
 };
 
-exports.save = function () {
+var save = function () {
     var tasks = [];
     $("#task-list .task").each(function (index, task) {
         var $task = $(task);
@@ -31,10 +31,19 @@ exports.save = function () {
     taskData.save(tasks);
 };
 
-exports.cancel = function () {
+var cancel = function () {
     exports.render();
 };
 
-exports.render = function () {
+var render = function () {
     taskRenderer.renderTasks(taskData.load());
+};
+
+module.exports = {
+    add: add,
+    remove: remove,
+    clear: clear,
+    save: save,
+    cancel: cancel,
+    render: render
 };
