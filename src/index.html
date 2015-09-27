@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/tasks.css">
 </head>
 <body>
-<header>
-    <h1>Task List</h1>
-</header>
+<div class="container">
+    <div class="jumbotron">
+        <header class="page-header">
+            <h1>To-do list</h1>
+        </header>
+    </div>
+    <div class="panel panel-default">
+        <div class="btn-group panel-heading">
+            <button class="btn btn-success" id="new-task-button">New Task</button>
+            <button class="btn btn-danger" id="delete-all-button">Delete All</button>
+        </div>
 
-<div class="toolbar">
-    <button id="new-task-button">New Task</button>
-    <button id="delete-all-button">Delete All</button>
+        <div id="container" class="panel-body">
+            <ul id="task-list" class="list-group"></ul>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-success" id="save-button">Save</button>
+        <button class="btn btn-warning" id="cancel-button">Cancel</button>
+    </div>
 </div>
-
-<div id="content">
-    <ul id="task-list"></ul>
-    <ul id="log-list"></ul>
-</div>
-
-<div class="toolbar">
-    <button id="save-button">Save</button>
-    <button id="cancel-button">Cancel</button>
-</div>
-
 <script src="js/tasks-app.min.js"></script>
 </body>
 

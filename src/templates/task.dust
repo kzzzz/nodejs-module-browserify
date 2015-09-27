@@ -1,5 +1,12 @@
-<li class="task">
-    <input class="complete" type="checkbox" {?complete}checked='checked'{/complete}>
-    <input class="description" type="text" placeholder="Enter task description..." value={description}></input>
-    <button class="delete-button">Delete</button>
+<li class="task list-group-item">
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon">
+            <input class="complete" type="checkbox" {?complete}checked='checked'{/complete}>
+        </span>
+        <input type="text" class="form-control description" placeholder="Add a new task..."
+               value={description}>
+        <span class="delete-button input-group-addon">
+            <span class="glyphicon glyphicon-remove"></span>
+        </span>
+    </div>
 </li>

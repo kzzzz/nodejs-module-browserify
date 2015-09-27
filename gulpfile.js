@@ -16,9 +16,21 @@ gulp.task('script', function () {
         .pipe(gulp.dest('build/js/'));
 });
 
-gulp.task('html', function () {
-    gulp.src('src/*.html')
-        .pipe(gulp.dest('build'));
+gulp.task('styles', function () {
+    gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(rename('tasks.css'))
+        .pipe(gulp.dest('build/styles/'));
 });
 
-gulp.task('default', ['script', 'html']);
+gulp.task('fonts', function () {
+    gulp.src('node_modules/bootstrap/dist/fonts/**/*.*')
+        .pipe(gulp.dest('build/fonts/'));
+});
+
+gulp.task('html', function () {
+    gulp.src('src/*.html')
+        .pipe(gulp.dest('build/'));
+});
+
+
+gulp.task('default', ['script', 'styles', 'fonts', 'html']);
